@@ -1,0 +1,27 @@
+@import "./styles/variables";
+
+:root {
+  font-family: $font-stack;
+  line-height: $line-height;
+  font-weight: $font-weight-normal;
+
+  color-scheme: light dark;
+  color: $text-color;
+  background: $bg-color;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  max-width: $max-width-body;
+  min-height: 100vh;
+  margin: 0 auto;
+}
