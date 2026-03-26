@@ -6,28 +6,49 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --quiet --fix",
+    "format": "prettier --write src/**/*.{ts,tsx,css,scss,md}",
+    "pc": "npm run lint:fix && npm run format",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{json,md,html}": [
+      "npm run pc"
+    ],
+    "*.{css,scss}": [
+      "npm run pc"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "npm run pc"
+    ]
   },
   "dependencies": {
-    "husky": "^9.1.7",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
+    "@eslint/css": "^1.0.0",
+    "@eslint/js": "^9.39.4",
+    "@eslint/json": "^1.2.0",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "3.8.1",
     "sass": "^1.97.3",
     "sass-embedded": "^1.97.3",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.48.0",
+    "typescript-eslint": "^8.57.2",
     "vite": "^7.3.1"
   }
 }
